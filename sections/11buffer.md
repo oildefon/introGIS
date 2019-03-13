@@ -2,9 +2,11 @@
 
 # Adding a Plugin & Creating a Buffer Zone
 
-The next step in our task is to calculate the inland areas that will potentially be affected by flood. We will achieve this following two steps: the first step is to create a buffer zone of 500m from the coastlines (defined by the Hydro layer lines), and the second step is to confront that buffer to altitude, to make sure that our map shows areas that would be safe because they are higher than 15m above the sea level. For the first step, we could create a buffer using the `fixed distance buffer` geoprocessing tool (in the same menu we found `Clip`), however, we won’t do that because the layer is not projected in the project’s CRS and the distances are warped. So we will take this opportunity to introduce one of the awesome things about QGIS: Plugins.
+The next step in our task is to calculate the inland areas that will potentially be affected by flood. Remember that the vulnerable areas are ones that are 500 meters from the coastlines and less than 15 meters in altitude. Therefore, we will need to take to steps in order to meet these two conditions. First, we will have to create a buffer zone of 500m from the coastlines (defined by the Hydro layer lines). And then we will have to compare that buffer to altitude to make sure that our map of vulnerable areas only shows areas that are below 15m in alitude. 
 
-The Open-source nature of QGIS means that many people around the world are constantly developing plugins that improve the capabilities of the software. In this case, we will download a plugin called `MMQGIS` that offers many practical tools that always interpret distances accurately, regardless of the CRS you’re using. Note that to install plugins you’ll need an Internet connection.
+One easy way to create a buffer is by using the `fixed distance buffer` geoprocessing tool (in the same menu we found `Clip`). However, we can't do that because the layer is not projected in the project’s Coordinate Reference System (CRS). Comparing two layers with different projections could produce significant errors. So we will take this opportunity to introduce one of the awesome things about QGIS: Plugins.
+
+The Open-source nature of QGIS means that many people around the world are constantly developing plugins that improve the capabilities of the software. In this case, we will download a plugin called `MMQGIS` that offers many practical tools, such as tools that always interpret distances accurately regardless of the (CRS) you’re using. Note that to install plugins you’ll need an Internet connection.
 
 * Click on the `Plugins` menu.
 * Click on `Manage and Install Plugins…`. 
